@@ -1,10 +1,12 @@
 /** @jsx h */
+import { tw } from "@twind";
 import { h } from "preact";
 import Counter from "../islands/Counter.tsx";
 
 export default function Home() {
   return (
     <div>
+      <h1 class={tw("text-red-500")}>Header</h1>
       <img
         src="/logo.svg"
         height="100px"

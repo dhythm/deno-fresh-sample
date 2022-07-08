@@ -1,8 +1,8 @@
-export * from "twind";
-
 import { IS_BROWSER } from "$fresh/runtime.ts";
-import { setup } from "twind";
+import { apply, Configuration, setup, tw } from "twind";
 import * as colors from "twind/colors";
+
+export { apply, setup, tw };
 
 export const theme = {
   colors: {
@@ -16,6 +16,8 @@ export const theme = {
   },
 };
 
+export const config: Configuration = { theme: { colors } };
+
 if (IS_BROWSER) {
-  setup({ theme: { colors } });
+  setup(config);
 }
