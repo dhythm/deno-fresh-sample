@@ -1,6 +1,7 @@
 /** @jsx h */
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/src/runtime/head.ts";
+import { Article, findAllArticles } from "@db";
 import { tw } from "@twind";
 import "dayjs/locale/ja";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -17,18 +18,7 @@ interface Article {
 
 export const handler: Handlers<Article[]> = {
   async GET(_, ctx) {
-    const articles: Article[] = [
-      {
-        id: "1",
-        title: "Article 1",
-        created_at: "2022-06-17T00:00:00.000Z",
-      },
-      {
-        id: "2",
-        title: "Article 2",
-        created_at: "2022-06-10T00:00:00.000Z",
-      },
-    ];
+    const articles = await findAllArticles();
     return ctx.render(articles);
   },
 };

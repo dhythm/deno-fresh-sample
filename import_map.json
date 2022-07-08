@@ -1,9 +1,14 @@
 {
   "imports": {
     "@twind": "./utils/twind.ts",
+    "@db": "./utils/db.ts",
+
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "dayjs/": "https://esm.sh/dayjs@1.11.3/",
+
+    "postgress": "https://deno.land/x/postgres@v0.16.1/mod.ts",
+    "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
 
     "$fresh/": "https://deno.land/x/fresh@1.0.0/",
     "preact": "https://esm.sh/preact@10.8.1",
