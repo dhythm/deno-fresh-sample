@@ -6,6 +6,7 @@ import { tw } from "@twind";
 import "dayjs/locale/ja";
 import relativeTime from "dayjs/plugin/relativeTime";
 import timezone from "dayjs/plugin/timezone";
+import { getCookies } from "https://deno.land/std@0.144.0/http/cookie.ts";
 import dayjs from "https://esm.sh/dayjs@1.11.3";
 import { h } from "preact";
 dayjs.extend(relativeTime);
@@ -20,7 +21,9 @@ interface Article {
 }
 
 export const handler: Handlers<Article[]> = {
-  async GET(_, ctx) {
+  async GET(req, ctx) {
+    const accessToken = getCookies(req.headers)["fresh_blog"];
+
     const articles = await findAllArticles();
     return ctx.render(articles);
   },
