@@ -36,10 +36,12 @@ export default function ArticlePage({ data }: PageProps<Article | null>) {
     return <div>Not Found</div>;
   }
 
+  const { article, parsedContent } = data;
+
   return (
     <div class={tw("min-h-screen bg-gray-200")}>
       <Head>
-        <title>{data.title}</title>
+        <title>{article.title}</title>
         <link rel="stylesheet" href="/article.css" />
       </Head>
       <div
@@ -50,14 +52,20 @@ export default function ArticlePage({ data }: PageProps<Article | null>) {
         <article class={tw("rounded-xl border p-5 shadow-md bg-white")}>
           <header>
             <h1 class={tw("font-extrabold text-5xl text-gray-800")}>
-              {data.title}
+              {article.title}
             </h1>
-            <time class={tw("text-gray-500 text-sm")} dateTime={data.createdAt}>
-              {dayjs(data.created_at).format("YYYY-MM-DD HH:mm:ss")}
+            <time
+              class={tw("text-gray-500 text-sm")}
+              dateTime={article.createdAt}
+            >
+              {dayjs(article.created_at).format("YYYY-MM-DD HH:mm:ss")}
             </time>
           </header>
           <section class={tw("mt-6")}>
-            <p>{data.content}</p>
+            <div
+              id="contents"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
+            />
           </section>
         </article>
       </div>
