@@ -1,9 +1,47 @@
 /** @jsx h */
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/src/runtime/head.ts";
+import { createArticle } from "@db";
 import { tw } from "@twind";
 import { h } from "preact";
 
-export default function CreateArticlePage() {
+interface Data {
+  error: {
+    title: string;
+    content: string;
+  };
+  title?: string;
+  content?: string;
+}
+
+export const handler: Handlers<Data> = {
+  async POST(req, ctx) {
+    const formData = await req.formData();
+    const title = formData.get("title")?.toString();
+    const content = formData.get("content")?.toString();
+
+    if (!title || !content) {
+      return ctx.render({
+        error: {
+          title: title ? "" : "Title is required",
+          content: content ? "" : "Content is required",
+        },
+        title,
+        content,
+      });
+    }
+
+    const article = { title, content };
+
+    await createArticle(article);
+
+    return new Response("", { status: 303, headers: { Location: "/" } });
+  },
+};
+
+export default function CreateArticlePage({
+  data,
+}: PageProps<Data | undefined>) {
   return (
     <div class={tw("min-h-screen bg-gray-200")}>
       <Head>
@@ -31,6 +69,9 @@ export default function CreateArticlePage() {
                 type="text"
                 name="title"
               />
+              {data?.error?.title && (
+                <p class={tw("text-red-500 text-sm")}>{data.error.title}</p>
+              )}
             </div>
             <div>
               <label class={tw("text-gray-500 text-sm")} htmlFor="content">
@@ -42,6 +83,9 @@ export default function CreateArticlePage() {
                 class={tw("w-full p-2 border border-gray-300 rounded-md")}
                 name="content"
               />
+              {data?.error?.content && (
+                <p class={tw("text-red-500 text-sm")}>{data.error.content}</p>
+              )}
             </div>
           </div>
           <div class={tw("flex justify-end mt-4")}>

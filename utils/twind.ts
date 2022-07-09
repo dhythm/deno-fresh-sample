@@ -5,6 +5,7 @@ export * from "twind";
 
 export const theme = {
   colors: {
+    red: colors.red,
     blue: colors.blue,
     black: "#12130F",
     gray: colors.gray,

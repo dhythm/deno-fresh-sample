@@ -5,10 +5,13 @@ import { Article, findAllArticles } from "@db";
 import { tw } from "@twind";
 import "dayjs/locale/ja";
 import relativeTime from "dayjs/plugin/relativeTime";
+import timezone from "dayjs/plugin/timezone";
 import dayjs from "https://esm.sh/dayjs@1.11.3";
 import { h } from "preact";
 dayjs.extend(relativeTime);
+dayjs.extend(timezone);
 dayjs.locale("ja");
+dayjs.tz.setDefault("Asia/Tokyo");
 
 interface Article {
   id: string;

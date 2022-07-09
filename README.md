@@ -24,6 +24,6 @@ docker exec -it CONTAINER_ID psql -U USER_NAME DATABASE
 
 
 docker exec -i CONTAINER_ID psql -U postgres -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'
-docker exec -i CONTAINER_ID psql -U postgres -c "CREATE TABLE IF NOT EXISTS articles ( id uuid DEFAULT uuid_generate_v4 (), created_at TIMESTAMP DEFAULT now(), title TEXT, content TEXT, PRIMARY KEY (id) )"
+docker exec -i CONTAINER_ID psql -U postgres -c "CREATE TABLE IF NOT EXISTS articles ( id uuid DEFAULT uuid_generate_v4 (), created_at TIMESTAMPTZ DEFAULT now(), title TEXT, content TEXT, PRIMARY KEY (id) )"
 docker exec -i CONTAINER_ID psql -U postgres -c "INSERT INTO articles (title, content) VALUES ('Hello, fresh world', 'fresh is a web framework that works on deno');"
 ```
