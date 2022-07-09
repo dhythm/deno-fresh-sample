@@ -68,7 +68,10 @@ export const handler: Handlers<Data> = {
 
     await createSession(username, accessToken);
 
-    const res = new Response("", { status: 303, headers: { Location: "/" } });
+    const res = new Response("", {
+      status: 303,
+      headers: { Location: "/articles" },
+    });
     setCookie(res.headers, {
       name: "fresh_blog",
       value: accessToken,

@@ -8,11 +8,6 @@ import { marked } from "marked";
 import { h } from "preact";
 import sanitize from "sanitize-html";
 
-interface Data {
-  article: Article;
-  parsedContent: string;
-}
-
 export const handler: Handlers<Article | null> = {
   async GET(_, ctx) {
     const { id } = ctx.params;
