@@ -10,10 +10,11 @@ import * as $4 from "./routes/about.tsx";
 import * as $5 from "./routes/api/joke.ts";
 import * as $6 from "./routes/api/random-uuid.ts";
 import * as $7 from "./routes/articles/[id].tsx";
-import * as $8 from "./routes/countdown.tsx";
-import * as $9 from "./routes/github/[username].tsx";
-import * as $10 from "./routes/index.tsx";
-import * as $11 from "./routes/search.tsx";
+import * as $8 from "./routes/articles/create.tsx";
+import * as $9 from "./routes/countdown.tsx";
+import * as $10 from "./routes/github/[username].tsx";
+import * as $11 from "./routes/index.tsx";
+import * as $12 from "./routes/search.tsx";
 import * as $$0 from "./islands/Countdown.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/LemonDrop.tsx";
@@ -28,10 +29,11 @@ const manifest = {
     "./routes/api/joke.ts": $5,
     "./routes/api/random-uuid.ts": $6,
     "./routes/articles/[id].tsx": $7,
-    "./routes/countdown.tsx": $8,
-    "./routes/github/[username].tsx": $9,
-    "./routes/index.tsx": $10,
-    "./routes/search.tsx": $11,
+    "./routes/articles/create.tsx": $8,
+    "./routes/countdown.tsx": $9,
+    "./routes/github/[username].tsx": $10,
+    "./routes/index.tsx": $11,
+    "./routes/search.tsx": $12,
   },
   islands: {
     "./islands/Countdown.tsx": $$0,
