@@ -14,9 +14,10 @@ import * as $8 from "./routes/countdown.tsx";
 import * as $9 from "./routes/github/[username].tsx";
 import * as $10 from "./routes/index.tsx";
 import * as $11 from "./routes/search.tsx";
-import * as $$0 from "./islands/Countdown.tsx";
-import * as $$1 from "./islands/Counter.tsx";
-import * as $$2 from "./islands/LemonDrop.tsx";
+import * as $$0 from "./islands/ContentForm.tsx";
+import * as $$1 from "./islands/Countdown.tsx";
+import * as $$2 from "./islands/Counter.tsx";
+import * as $$3 from "./islands/LemonDrop.tsx";
 
 const manifest = {
   routes: {
@@ -34,9 +35,10 @@ const manifest = {
     "./routes/search.tsx": $11,
   },
   islands: {
-    "./islands/Countdown.tsx": $$0,
-    "./islands/Counter.tsx": $$1,
-    "./islands/LemonDrop.tsx": $$2,
+    "./islands/ContentForm.tsx": $$0,
+    "./islands/Countdown.tsx": $$1,
+    "./islands/Counter.tsx": $$2,
+    "./islands/LemonDrop.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };

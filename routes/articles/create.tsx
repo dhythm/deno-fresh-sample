@@ -4,6 +4,7 @@ import { Head } from "$fresh/src/runtime/head.ts";
 import { createArticle } from "@db";
 import { tw } from "@twind";
 import { h } from "preact";
+import ContentForm from "../../islands/ContentForm.tsx";
 
 interface Data {
   error: {
@@ -46,6 +47,7 @@ export default function CreateArticlePage({
     <div class={tw("min-h-screen bg-gray-200")}>
       <Head>
         <title>Create Post</title>
+        <link rel="stylesheet" href="/article.css" />
       </Head>
       <div
         class={tw(
@@ -74,7 +76,7 @@ export default function CreateArticlePage({
               )}
             </div>
             <div>
-              <label class={tw("text-gray-500 text-sm")} htmlFor="content">
+              {/* <label class={tw("text-gray-500 text-sm")} htmlFor="content">
                 Content
               </label>
               <textarea
@@ -82,7 +84,8 @@ export default function CreateArticlePage({
                 rows={10}
                 class={tw("w-full p-2 border border-gray-300 rounded-md")}
                 name="content"
-              />
+              /> */}
+              <ContentForm initialValue={data?.content} />
               {data?.error?.content && (
                 <p class={tw("text-red-500 text-sm")}>{data.error.content}</p>
               )}

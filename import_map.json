@@ -9,6 +9,7 @@
 
     "marked": "https://esm.sh/marked@4.0.17",
     "sanitize-html": "https://esm.sh/sanitize-html@2.7.0",
+    "dompurify": "https://esm.sh/dompurify@2.3.8",
 
     "@db": "./utils/db.ts",
     "postgress": "https://deno.land/x/postgres@v0.16.1/mod.ts",
