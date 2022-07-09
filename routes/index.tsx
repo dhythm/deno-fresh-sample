@@ -36,15 +36,17 @@ export default function Home({ data }: PageProps<Article[]>) {
       >
         <h1 class={tw("font-extrabold text-5xl text-gray-800")}>Fresh Blog</h1>
         <section class={tw("mt-8")}>
-          <h2 class={tw("text-4xl font-bold text-gray-800 py-4")}>Posts</h2>
-          <a
-            href="/articles/create"
-            class={tw(
-              "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-            )}
-          >
-            Create Post
-          </a>
+          <div class={tw("flex justify-between items-center")}>
+            <h2 class={tw("text-4xl font-bold text-gray-800 py-4")}>Posts</h2>
+            <a
+              href="/articles/create"
+              class={tw(
+                "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+              )}
+            >
+              Create Post
+            </a>
+          </div>
           <ul>
             {data.map((article) => (
               <li

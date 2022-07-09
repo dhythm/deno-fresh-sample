@@ -4,6 +4,23 @@
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.unstable" />
 
-import { start } from "$fresh/server.ts";
+import { InnerRenderFunction, RenderContext, start } from "$fresh/server.ts";
+import twindTypography from "$twind/typography";
+import { config, setup, theme } from "@twind";
+import { virtualSheet } from "twind/sheets";
 import manifest from "./fresh.gen.ts";
-await start(manifest);
+
+const sheet = virtualSheet();
+sheet.reset();
+setup({ ...config, plugins: { ...twindTypography }, sheet, theme });
+
+function render(ctx: RenderContext, render: InnerRenderFunction) {
+  const snapshot = ctx.state.get("twind") as unknown[] | null;
+  sheet.reset(snapshot || undefined);
+  render();
+  ctx.styles.splice(0, ctx.styles.length, ...sheet.target);
+  const newSnapshot = sheet.reset();
+  ctx.state.set("twind", newSnapshot);
+}
+
+await start(manifest, { render });

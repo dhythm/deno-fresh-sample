@@ -1,16 +1,16 @@
 {
   "imports": {
     "@twind": "./utils/twind.ts",
-    "@db": "./utils/db.ts",
-
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
+    "$twind/typography": "https://cdn.skypack.dev/@twind/typography",
     "dayjs": "https://esm.sh/dayjs@1.11.3",
     "dayjs/": "https://esm.sh/dayjs@1.11.3/",
 
     "marked": "https://esm.sh/marked@4.0.17",
     "sanitize-html": "https://esm.sh/sanitize-html@2.7.0",
 
+    "@db": "./utils/db.ts",
     "postgress": "https://deno.land/x/postgres@v0.16.1/mod.ts",
     "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
 
